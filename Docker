@@ -1,0 +1,23 @@
+FROM Centos:7 
+
+# Set metadata for the image
+LABEL org.label-schema.build-date="2024-07-24"
+LABEL org.label-schema.license="JACCS"
+LABEL org.label-schema.name="R23-FI"
+LABEL org.label-schema.schema-version="1.0"
+LABEL org.label-schema.vendor="ITSS"
+
+# Copy your application files into the image
+COPY . /ITSS/DEVOPS/FI/
+
+# Set the working directory inside the container
+WORKDIR /ITSS/DEVOPS/FI/
+
+# Expose any necessary ports
+EXPOSE 7076
+
+# Define entrypoint (if necessary)
+ENTRYPOINT ["/usr/sbin/init"]
+
+# Default command to run your application (if necessary)
+CMD ["systemctl"]
